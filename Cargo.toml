@@ -1,0 +1,28 @@
+[package]
+name = "ngrok-rs-example-websockets"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = { version = "0.6.12", features = ["ws", "headers"] }
+futures = "0.3.27"
+futures-util = { version = "0.3.27", features = ["sink", "std"] }
+headers = "0.3.8"
+ngrok = { version = "0.11.2", features = ["axum"] }
+once_cell = "1.17.1"
+tokio = { version = "1.27.0", features = ["full"] }
+tokio-tungstenite = { version = "0.18.0", features = ["native-tls"] }
+tower = { version = "0.4.13", features = ["util"] }
+tower-http = { version = "0.4.0", features = ["fs", "trace"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.16", features = ["env-filter"] }
+
+[[bin]]
+name = "example-websockets"
+path = "src/main.rs"
+
+[[bin]]
+name = "example-client"
+path = "src/client.rs"
